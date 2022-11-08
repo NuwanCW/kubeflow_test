@@ -13,6 +13,6 @@ jobs:
         password: ${{ secrets.NEW_GITHUB_TOKEN }}
     - name: Build the decision tree Docker image
       run: |
-        docker build ./decision_tree/ --tag ghcr.io/nuwanCW/hello-docker-gcr-demo:latest
-        docker run ghcr.io/nuwanCW/hello-docker-gcr-demo:latest
-        docker push ghcr.io/nuwanCW/hello-docker-gcr-demo:latest
+        docker build ./decision_tree/ --tag ghcr.io/nuwancw/hello-docker-gcr-demo:latest
+        docker run ghcr.io/nuwancw/hello-docker-gcr-demo:latest
+        docker push ghcr.io/nuwancw/hello-docker-gcr-demo:latest
