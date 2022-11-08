@@ -1,7 +1,7 @@
 name: publish
 on: [push]
 jobs:
-  publish-hello-docker-image:
+  publish-docker-images:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -13,6 +13,12 @@ jobs:
         password: ${{ secrets.NEW_GITHUB_TOKEN }}
     - name: Build the decision tree Docker image
       run: |
-        docker build ./decision_tree/ --tag ghcr.io/nuwancw/hello-docker-gcr-demo:latest
-        docker run ghcr.io/nuwancw/hello-docker-gcr-demo:latest
-        docker push ghcr.io/nuwancw/hello-docker-gcr-demo:latest
+        docker build ./decision_tree/ --tag ghcr.io/nuwancw/decision-tree:latest
+        docker run ghcr.io/nuwancw/decision-tree:latest
+        docker push ghcr.io/nuwancw/decision-tree:latest
+        docker build ./download_data/ --tag ghcr.io/nuwancw/download-data:latest
+        docker run ghcr.io/nuwancw/download-data:latest
+        docker push ghcr.io/nuwancw/download-data:latest
+        docker build ./lr/ --tag ghcr.io/nuwancw/lr:latest
+        docker run ghcr.io/nuwancw/lr:latest
+        docker push ghcr.io/nuwancw/lr:latest
